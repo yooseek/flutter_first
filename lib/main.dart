@@ -27,21 +27,54 @@ class HomeApp extends StatelessWidget {
     print("패딩 탑 : ${safeArea}");
     var test = AppBar().preferredSize.height;
     print("앱바 사이즈 : ${test}");
-    return Column(
-      children: [
-        Container(
-          height: (m.size.height-24) * 0.7,
-          color: Colors.green,
+    return MaterialApp(
+      home: SafeArea(
+        child: Scaffold(
+          body: Center(
+            child: Column(
+              children: [
+                SizedBox(height: 50,),
+                Image.asset("assets/test.jpg"),
+                SizedBox(height: 40,),
+                Text("NeedLeWork", style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+                SizedBox(height: 20,),
+                Text("is seek",style: TextStyle(fontSize: 20),),
+                SizedBox(height: 20,),
+                Text("HandCreft"),
+                SizedBox(height: 50,),
+                RaisedButton(
+                  onPressed: (){print('버튼클릭됨');},
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(400)),
+                  child: Text('Get Start',
+                    style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,),
+                  ),
+                  color: Colors.black,
+
+                )
+              ],
+            ),
+          ),
+          )
         ),
-        Container(
-          height: (m.size.height-24) * 0.2,
-          color: Colors.red,
-        ),
-        Container(
-          height: (m.size.height-24) * 0.1,
-          color: Colors.amber,
-        )
-      ],
     );
   }
+
+  Widget buildMaterialApp(int index) {
+    return Column(
+      children: [
+        ListTile(
+        title: Text('제목'),
+        subtitle: Text("부제목"),
+        leading: Icon(Icons.account_box_sharp),
+        onTap: (){
+          print('눌러짐');
+        },
+      ),
+      Container(
+      height: 5,
+      color: Colors.red,
+      )]
+    );
+  }
+
 }
